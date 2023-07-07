@@ -1,0 +1,65 @@
+#VRML_SIM V7.4.3 utf8
+WorldInfo {
+  info [
+    "Description"
+    "Author: first name last name <e-mail>"
+    "Date: DD MMM YYYY"
+  ]
+  title "Planeacion de trayectorias para ePuck"
+  basicTimeStep 16
+  contactProperties [
+    ContactProperties {
+      coulombFriction 5
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.990021 0.0865848 -0.111183 1.58861
+  position 0.275012 2.01683 -0.0735026
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+DirectionalLight {
+  ambientIntensity 1
+  direction -0.33 -1 -0.5
+  castShadows TRUE
+}
+SphericalSkyDome {
+}
+DEF Mundo RectangleArena {
+  floorTileSize 0.2 0.2
+}
+DEF Box1 SolidBox {
+  translation 0 0.05 0
+  size 0.1 0.1 0.1
+}
+DEF Box2 SolidBox {
+  translation 0.3 0.05 0.2
+  size 0.1 0.1 0.1
+}
+DEF Box3 SolidBox {
+  translation -0.15 0.05 -0.15
+  size 0.1 0.1 0.1
+}
+DEF Box4 SolidBox {
+  translation 0.1 0.05 0.2
+  size 0.1 0.1 0.1
+}
+DEF EPuck EPuck {
+  translation -0.35 0 0.35
+  controller "controlador_epuck_c"
+}
+DEF Ball Ball {
+  translation 0.35 0.0325 -0.45
+}
+Supervisor {
+  children [
+    Emitter {
+      channel 1
+    }
+  ]
+  controller "Busqueda_astar"
+}
